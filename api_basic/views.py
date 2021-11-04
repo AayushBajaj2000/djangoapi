@@ -25,7 +25,7 @@ def state(request):
         return JsonResponse(serializer.errors, status=400)
 
 def home(request):
-    x = requests.get('http://localhost:8000/state/')
+    x = requests.get('https://assignment2iotapp.herokuapp.com/state/')
     data = x.json()
     currentState = data[-1]['light_1'] # Get the latest data
     return render(request, "app.html", {'currentState': currentState})
